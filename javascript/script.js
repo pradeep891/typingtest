@@ -1,5 +1,5 @@
 //randon quotes api url
-const quoteApiUrl= "https://api.quotable.io/random?minLength=80&maxLength=100";
+const quoteApiUrl= "https://api.quotable.io/random?minLength=80&maxLength=300";
 const quoteSection = document.getElementById("quote");
 const userInput = document.getElementById("quote-input");
 let quote = "";
@@ -86,7 +86,7 @@ function updateTimer(){
 
 //sets timer 
 const timeReduce = () => {
-    time = 10;
+    time = 60;
     timer = setInterval(updateTimer , 1000);
 }
 
@@ -96,12 +96,13 @@ const displayResult = () => {
     document.querySelector(".result").style.display = "block";
     clearInterval(timer);
     document.getElementById("stop-test").style.display = "none";
-    userInput.disable = true;
+    userInput.disabled = true;
     let timeTaken = 1;
     if(time != 0){
-        timeTaken = (60 - time) / 100;
+        timeTaken = (60 - time) / 60;
     }
-    document.getElementById("wpm").innerText = (userInput.value.length / 5 / timeTaken).toFixed(2) + " wpm";
+    document.getElementById("netwpm").innerText = ((userInput.value.length / 5 - mistakes) / timeTaken).toFixed(2) + " wpm";
+    document.getElementById("grosswpm").innerText = ((userInput.value.length / 5 ) / timeTaken).toFixed(2) + " wpm";
     document.getElementById("accuracy").innerText = Math.round(
         ((userInput.value.length - mistakes) / userInput.value.length) * 100 ) + "%";
 };
