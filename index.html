@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+
+    <h1 class="heading">Typing Test...</h1>
     <div class="container">
         <div class="stats">
             <p>
@@ -18,12 +20,14 @@
             </p>
             <p>Mistakes:<span id="mistakes">0</span></p>
         </div>
+        <hr>
         <div id="quote" onmousedown="return false" onselectstart="return false"></div>
         <textarea rows="3" id="quote-input" placeholder="Type here when the test starts..."></textarea>
 
         <button id="start-test" onclick="startTest()">Start Test</button>
         <button id="stop-test" onclick="displayResult()">Stop Test</button>
         <div class="result">
+            <hr><br>
             <h3>Result</h3>
             <div class="wrapper">
                 <p>Accuracy: <span id="accuracy"></span></p>
@@ -32,6 +36,8 @@
             </div>
         </div>
     </div>
+
+    <div class="copyright">©Copyright 2022</div>
 
     <script src="./javascript/script.js"></script>
 </body>
