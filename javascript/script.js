@@ -18,6 +18,9 @@ const renderNewQuote = async() => {
     //Access quote
     quote = data.content;
     
+    //Empty the quoteSection
+    quoteSection.innerText = "";
+
     //Array of characters in the quote
     let arr = quote.split("").map(value => {
         //wrap the characters in a span tag
@@ -105,6 +108,8 @@ const displayResult = () => {
     document.getElementById("grosswpm").innerText = ((userInput.value.length / 5 ) / timeTaken).toFixed(2) + " wpm";
     document.getElementById("accuracy").innerText = Math.round(
         ((userInput.value.length - mistakes) / userInput.value.length) * 100 ) + "%";
+    
+    document.getElementById("change-text").disabled = true;
 };
 
 //Start TEst
@@ -123,3 +128,8 @@ window.onload = () => {
     userInput.disabled = true;
     renderNewQuote();
 };
+
+//change text
+function changeText(){
+    renderNewQuote();
+}
